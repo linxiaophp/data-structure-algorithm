@@ -1,0 +1,24 @@
+{
+    "name": "95633/data-structure-algorithm",
+    "authors": [
+        {
+            "name": "chenxj",
+            "email": "956334972@qq.com"
+        }
+    ],
+    "autoload": {
+        "files": [],
+        "classmap": [
+            "SortTool.php",
+            "Algorithms/AlgorithmInterface.php",
+            "Algorithms/AlgorithmAbstract.php",
+            "Algorithms/Sort/PHPSort.php",
+            "Algorithms/Sort/InsertionSort.php",
+            "Algorithms/Sort/BubbleSort.php",
+            "Algorithms/Sort/ShellSort.php",
+            "Algorithms/Sort/MergeSort.php",
+            "Algorithms/Sort/QuickSort.php"
+        ]
+    },
+    "require": {}
+}
