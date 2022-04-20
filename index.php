@@ -8,6 +8,7 @@ use Algorithm\Sort\BubbleSort;
 use Algorithm\Sort\ShellSort;
 use Algorithm\Sort\MergeSort;
 use Algorithm\Sort\QuickSort;
+use Structure\Heap;
 
 function produceNumberData($num = 10)
 {
@@ -32,19 +33,35 @@ $shellSort = new ShellSort();
 $mergeSort = new MergeSort();
 $quickSort = new QuickSort();
 
-for ($i = 0;$i < $num;$i++) {
-    //php sort函数排序
-    $timeData = $sortTool->getTimeData($data, $phpSort, $timeData);
-    //插入排序
-    $timeData = $sortTool->getTimeData($data, $insertionSort, $timeData);
-    //冒泡排序
-    $timeData = $sortTool->getTimeData($data, $bubbleSort, $timeData);
-    //希尔排序
-    $timeData = $sortTool->getTimeData($data, $shellSort, $timeData);
-    //归并排序
-    $timeData = $sortTool->getTimeData($data, $mergeSort, $timeData);
-    //快速排序
-    $timeData = $sortTool->getTimeData($data, $quickSort, $timeData);
+//for ($i = 0;$i < $num;$i++) {
+//    //php sort函数排序
+//    $timeData = $sortTool->getTimeData($data, $phpSort, $timeData);
+//    //插入排序
+//    $timeData = $sortTool->getTimeData($data, $insertionSort, $timeData);
+//    //冒泡排序
+//    $timeData = $sortTool->getTimeData($data, $bubbleSort, $timeData);
+//    //希尔排序
+//    $timeData = $sortTool->getTimeData($data, $shellSort, $timeData);
+//    //归并排序
+//    $timeData = $sortTool->getTimeData($data, $mergeSort, $timeData);
+//    //快速排序
+//    $timeData = $sortTool->getTimeData($data, $quickSort, $timeData);
+//}
+//
+//$sortTool->printTimeData($timeData, 2, $num);
+
+$heap = new Heap();
+
+for ($i = 0;$i < 10;$i++) {
+    $heap->insert($i);
 }
 
-$sortTool->printTimeData($timeData, 2, $num);
+echo '<pre>';
+print_r($heap->getHeap());
+echo '<pre>';
+
+$heap->extractMax();
+
+echo '<pre>';
+print_r($heap->getHeap());
+echo '<pre>';
