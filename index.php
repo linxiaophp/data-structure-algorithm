@@ -9,6 +9,8 @@ use Algorithm\Sort\ShellSort;
 use Algorithm\Sort\MergeSort;
 use Algorithm\Sort\QuickSort;
 use Structure\Heap;
+use Structure\Queue;
+use Structure\Stack;
 
 function produceNumberData($num = 10)
 {
@@ -50,18 +52,24 @@ $quickSort = new QuickSort();
 //
 //$sortTool->printTimeData($timeData, 2, $num);
 
-$heap = new Heap();
+$stack = new Stack();
 
-for ($i = 0;$i < 10;$i++) {
-    $heap->insert($i);
+for ($i = 0;$i < 11;$i++) {
+    $stack->insert($i);
 }
 
 echo '<pre>';
-print_r($heap->getHeap());
+print_r($stack->getStack());
 echo '<pre>';
 
-$heap->extractMax();
+$stack->delete();
 
 echo '<pre>';
-print_r($heap->getHeap());
+print_r($stack->getStack());
+echo '<pre>';
+
+$stack->insert(10);
+
+echo '<pre>';
+print_r($stack->getStack());
 echo '<pre>';

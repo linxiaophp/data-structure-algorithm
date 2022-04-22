@@ -18,7 +18,9 @@
             "Algorithms/Sort/ShellSort.php",
             "Algorithms/Sort/MergeSort.php",
             "Algorithms/Sort/QuickSort.php",
-            "Structures/Heap.php"
+            "Structures/Heap.php",
+            "Structures/Queue.php",
+            "Structures/Stack.php"
         ]
     },
     "require": {}

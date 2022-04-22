@@ -26,9 +26,20 @@ class Heap
     {
         $maxNode = 1;
         $maxNumber = $this->heap[$maxNode] ?? null;
+        $number = array_pop($this->heap);
+        $this->heap[$maxNode] = $number;
         $this->shiftDown($maxNode);
 
         return $maxNumber;
+    }
+
+    public function heapify()
+    {
+        $count = count($this->heap) - 1;
+
+        for ($i = floor($count / 2);$i > 0;$i--) {
+            $this->shiftDown($i);
+        }
     }
 
     public function getHeap()
@@ -48,15 +59,11 @@ class Heap
             return true;
         }
 
-        $number = $this->heap[$node];
-        $parentNumber = $this->heap[$parentNode];
-
-        if ($number <= $parentNumber) {
+        if ($this->heap[$node] <= $this->heap[$parentNode]) {
             return true;
         }
 
-        $this->heap[$parentNode] = $number;
-        $this->heap[$node] = $parentNumber;
+        $this->swap($node, $parentNode);
 
         return $this->shiftUp($parentNode);
     }
@@ -67,8 +74,6 @@ class Heap
             return true;
         }
 
-        $number = array_pop($this->heap);
-        $this->heap[$node] = $number;
         $j = $node;
         $count = count($this->heap);
 
@@ -88,12 +93,17 @@ class Heap
                 break;
             }
 
-            $temp = $this->heap[$biggerChild];
-            $this->heap[$biggerChild] = $this->heap[$j];
-            $this->heap[$j] = $temp;
+            $this->swap($j, $biggerChild);
 
             $j = $biggerChild;
         }
+    }
+
+    protected function swap($i, $j)
+    {
+        $temp = $this->heap[$i];
+        $this->heap[$i] = $this->heap[$j];
+        $this->heap[$j] = $temp;
     }
 
     protected function getParentNode($node)
